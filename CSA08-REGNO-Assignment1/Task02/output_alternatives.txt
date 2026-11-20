@@ -1,0 +1,20 @@
+integer paise       : 3340030 -> 33400.30  exact: True
+float + round/step  : 33400.3  exact: True
+Decimal             : 33400.30  exact: True
+plain float         : 33400.299999999996  exact: False
+
+memory per value (sys.getsizeof, bytes):
+  float   : 24
+  int     : 28
+  Decimal : 104
+
+time per addition (best of 5, 1,000,000 additions):
+  float +=                      45.5 ns
+  float + round(,2)            328.2 ns
+  int paise +=                  48.8 ns
+  Decimal +=                    96.1 ns
+
+correctness for n payments of Rs 0.10 (exact total = n/10):
+  n=300     float sum 30.000000000000156     float+round 30.0       int paise 30.0      
+  n=6000    float sum 600.0000000000679      float+round 600.0      int paise 600.0     
+  n=150000  float sum 15000.000000037038     float+round 15000.0    int paise 15000.0   

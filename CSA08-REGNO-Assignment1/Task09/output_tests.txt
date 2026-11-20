@@ -1,0 +1,25 @@
+Test case                      Input               Expected          Actual                              Result
+standard milk                  10 L 3.5/8.5        30.00 / 300.00    30.00 / 300.00                      PASS
+fat above, snf above           8.5 L 4.2/8.7       33.40 / 283.90    33.40 / 283.90                      PASS
+fat below, snf below           12 L 3.1/8.3        27.80 / 333.60    27.80 / 333.60                      PASS
+fat above, snf below           10 L 4.0/8.0        30.50 / 305.00    30.50 / 305.00                      PASS
+fat below, snf above           10 L 3.0/9.0        29.50 / 295.00    29.50 / 295.00                      PASS
+lowest fat & snf (boundary)    20 L 2.0/7.0        19.50 / 390.00    19.50 / 390.00                      PASS
+highest fat & snf (boundary)   15.5 L 7.0/10.0     48.50 / 751.75    48.50 / 751.75                      PASS
+standard fat, high snf         10 L 3.5/9.1        31.80 / 318.00    31.80 / 318.00                      PASS
+two-decimal litres             12.25 L 3.5/8.5     30.00 / 367.50    30.00 / 367.50                      PASS
+half-paisa tie rounds up       0.25 L 3.5/8.4      29.70 / 7.43      29.70 / 7.43                        PASS
+text as litres                 eight/3.5/8.5       ValueError        litres: 'eight' is not a number (d  PASS
+comma decimal                  10/3,5/8.5          ValueError        fat %: '3,5' is not a number (digi  PASS
+negative quantity              -5/3.5/8.5          ValueError        litres: -5 must be greater than 0   PASS
+zero quantity                  0/3.5/8.5           ValueError        litres: 0 must be greater than 0    PASS
+fat below 2.0                  10/1.9/8.5          ValueError        fat %: 1.9 outside 2.0-7.0          PASS
+fat above 7.0                  10/7.1/8.5          ValueError        fat %: 7.1 outside 2.0-7.0          PASS
+snf out of range               10/3.5/10.1         ValueError        SNF %: 10.1 outside 7.0-10.0        PASS
+blank litres                     /3.5/8.5          ValueError        litres: '  ' is not a number (digi  PASS
+'nan' sneaks past float        nan/3.5/8.5         ValueError        litres: 'nan' is not a number (dig  PASS
+bad shift                      10/3.5/8.5          ValueError        shift: 'N' must be one of ('M', 'E  PASS
+litres over limit              250/3.5/8.5         ValueError        litres: 250 exceeds 200 per entry   PASS
+5-entry hand total             5 entries           2059.25           2059.25                             PASS
+
+All 22 tests passed.

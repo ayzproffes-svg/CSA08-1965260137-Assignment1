@@ -1,0 +1,30 @@
+1) TOTALS (Rs) - bank amount = sum of payments each rounded to the paisa (Decimal)
+       n          float naive  float, each rounded  Decimal each (BANK)  Decimal total only
+     300        325169.439000        325169.470000            325169.63           325169.44
+    6000       6197053.036000       6197052.640000           6197055.49          6197053.04
+  150000     155828323.641000     155828325.289998         155828395.42        155828323.64
+
+2) DIFFERENCE from the bank amount (Rs)
+       n      float naive   float each-rounded   Decimal total-only   payments that differ
+     300        -0.191000            -0.160000                -0.19                     16
+    6000        -2.454000            -2.850000                -2.45                    285
+  150000       -71.779000           -70.130002               -71.78                   7013
+
+3) TIME (seconds, time.perf_counter, includes text -> number conversion)
+       n   float naive  float rounded  Decimal each  Decimal/float
+     300        0.0001         0.0004        0.0009           2.5x
+    6000        0.0023         0.0068        0.0165           2.4x
+  150000        0.0589         0.1724        0.4293           2.5x
+
+4) ALTERNATIVE - rate table: compute each (fat, snf) rate once, then look it up
+       n  k pairs  recalc (s)  table (s)  speed-up  table bytes
+     300      279      0.0007     0.0015      0.5x        53944
+    6000     1545      0.0154     0.0139      1.1x       321008
+  150000     1581      0.4786     0.3049      1.6x       326768
+(k can never exceed 51 fat values x 31 SNF values = 1,581 pairs for 1-decimal readings)
+
+5) WHERE DOES THE DIFFERENCE COME FROM?  Decimal with ROUND_HALF_EVEN (what float round() does on ties)
+       n   Decimal half-even  float each-rounded  half-even - float  half-up - half-even
+     300           325169.44       325169.470000              -0.03                 0.19
+    6000          6197052.74      6197052.640000               0.10                 2.75
+  150000        155828324.93    155828325.289998              -0.36                70.49

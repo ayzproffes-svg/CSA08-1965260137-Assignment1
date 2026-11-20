@@ -1,0 +1,7 @@
+card loaded: {'base_rate': '30.00', 'fat_step_value': '0.40', 'snf_step_value': '0.30', 'std_fat': '3.5', 'std_snf': '8.5'}
+start-up cost to read the file: 33.1 microseconds (mean of 2000)
+file size on disk: 123 bytes; size in memory (dict + 5 Decimals): 704 bytes
+rate from file : 33.40
+rate from module: 33.40
+after editing fat_step_value to 0.45 in the file: rate(4.2, 8.7) = 33.75
+missing file -> FileNotFoundError (program must stop with a clear message)

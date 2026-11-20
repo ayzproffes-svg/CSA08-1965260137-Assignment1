@@ -1,0 +1,15 @@
+input text    isnumber?  try/except result
+'8.5'         True       8.5
+' 8.5 '       True       8.5
+'8,5'         False      None
+'eight'       False      None
+''            False      None
+'-3'          False      -3.0
+'nan'         False      nan
+'1e1'         False      10.0
+'1_0'         False      10.0
+'٣'           False      3.0
+
+per entry (microseconds)   valid '8.5'   invalid 'eight'
+  A: check then convert        0.434          0.206
+  B: try/except                0.162          1.221

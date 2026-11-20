@@ -1,0 +1,20 @@
+name            type        kind      reason
+farmer_id       str         input     identifier, e.g. 'K017'; never added up
+shift           str         input     'M' or 'E'; a label, not a number
+litres          Decimal     input     fractional quantity, e.g. 8.5 L
+fat             Decimal     input     fractional percentage
+snf             Decimal     input     fractional percentage
+rate_per_litre  Decimal     output    money: must be exact to the paisa
+amount          Decimal     output    money, rounded to paise
+ten_day_total   Decimal     output    money, sum of rounded amounts
+fat_steps       int-valued  derived   whole number of 0.1 % steps (can be negative)
+entry count     int         derived   whole number, e.g. 20 shifts in ten days
+BASE_RATE ...   Decimal     constant  never change during a run
+
+n      3-variable: lines of code   names   run time(ms) | list design: lines  run time(ms)
+300                       601       900          21.10 |                 7          0.16
+1000                     2001      3000          73.40 |                 7          0.49
+3000                     6001      9000         217.79 |                 7          1.76
+
+For 150,000 farmers the three-variable source would need about 450,000 names and
+300,000 lines of hand-written code; the list/tuple design is still 7 lines.

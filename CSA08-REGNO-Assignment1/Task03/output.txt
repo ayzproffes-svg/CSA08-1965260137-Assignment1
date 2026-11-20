@@ -1,0 +1,18 @@
+rate(4.2, 8.7) = 33.4
+after BASE_RATE = 99.0 (legal!): 102.4 <- convention was broken, no error
+
+x = 10 <class 'int'>
+x = ten <class 'str'>
+TypeError: can only concatenate str (not "int") to str
+
+before swap: 4.2 8.7
+after swap : 8.7 4.2
+a = b = c = 0 -> 0 0 0
+
+time for 300,000 rate calculations (seconds, best of 5):
+  named constants    0.147
+  magic numbers      0.141
+  RATE_CARD dict     0.155
+
+places to edit for a fat-step revision: magic numbers = k (every expression),
+named constant = 1 line, RATE_CARD dict = 1 line.

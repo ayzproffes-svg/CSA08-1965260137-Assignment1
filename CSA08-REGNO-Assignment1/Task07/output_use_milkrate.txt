@@ -1,0 +1,10 @@
+Importing milkrate printed no rate table: the __main__ guard stayed False.
+payout(8.5, 4.2, 8.7) via milkrate.payout : 283.9
+payout(8.5, 4.2, 8.7) via mr.payout       : 283.9
+payout(8.5, 4.2, 8.7) via payout          : 283.9
+milkrate is mr                            : True
+milkrate.__name__                         : milkrate
+'milkrate' in sys.modules                 : True
+module file                               : milkrate.py
+sys.path[0] (script folder searched first): /home/claude/repo/CSA08-REGNO-Assignment1/Task07
+first import    246.5 us   repeat import   0.65 us

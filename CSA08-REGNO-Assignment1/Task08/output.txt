@@ -1,0 +1,10 @@
+TRACE        litres  fat  snf | fat steps snf steps  rate    amount    total
+entry M          10  3.5  8.5 |        0         0  30.00    300.00    300.00
+entry E         8.5  4.2  8.7 |        7         2  33.40    283.90    583.90
+entry M          12  3.1  8.3 |       -4        -2  27.80    333.60    917.50
+expected total by hand: 300.00 + 283.90 + 333.60 = 917.50 -> 917.50
+
+   n   | stored: time(s) peak memory(KB) | running: time(s) peak memory(KB) | equal
+    300|         0.005             121 |          0.005                1 | True
+   6000|         0.108            2397 |          0.101                1 | True
+ 150000|         4.262           59848 |          3.578                1 | True

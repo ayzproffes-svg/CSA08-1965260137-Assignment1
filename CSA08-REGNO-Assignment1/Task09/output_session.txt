@@ -1,0 +1,13 @@
+Ksheera Co-operative - milk entry (blank farmer ID to finish)
+ID    Sh   Litres   Fat   SNF    Rate    Amount
+Farmer ID : Shift M/E : Litres    : Fat %     : SNF %     : K001  M        10   3.5   8.5   30.00    300.00
+Farmer ID : Shift M/E : Litres    : Fat %     : SNF %     : K001  E       8.5   4.2   8.7   33.40    283.90
+Farmer ID : Shift M/E : Litres    : Fat %     : SNF %     : K002  M        12   3.1   8.3   27.80    333.60
+Farmer ID : Shift M/E : Litres    : Fat %     : SNF %     :   REJECTED - litres: 'eight' is not a number (digits and one '.' only)
+Farmer ID : Shift M/E : Litres    : Fat %     : SNF %     :   REJECTED - litres: -5 must be greater than 0
+Farmer ID : Shift M/E : Litres    : Fat %     : SNF %     :   REJECTED - fat %: 7.5 outside 2.0-7.0
+Farmer ID : Shift M/E : Litres    : Fat %     : SNF %     : K001  M      15.5   7.0  10.0   48.50    751.75
+Farmer ID : 
+Ten-day statement
+  K001    3 entries  Rs    1335.65
+  K002    1 entries  Rs     333.60

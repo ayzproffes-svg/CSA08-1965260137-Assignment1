@@ -1,0 +1,27 @@
+Test case                      Input               Expected             Actual                         Result
+standard, 1-dec readings       m11 10L 3.5/8.5     30.00/300.00         30.00/300.00                   PASS
+summer, standard milk          m5 10L 3.5/8.5      32.00/320.00         32.00/320.00                   PASS
+summer, 1-dec, above           m4 8.5L 4.2/8.7     35.75/303.88         35.75/303.88                   PASS
+standard, 1-dec, above         m12 8.5L 4.2/8.7    33.40/283.90         33.40/283.90                   PASS
+standard, 2-dec (4.25/8.63)    m3 10L 4.25/8.63    33.39/333.90         33.39/333.90                   PASS
+summer, 2-dec (4.25/8.63)      m4 10L 4.25/8.63    35.77/357.70         35.77/357.70                   PASS
+standard, 2-dec, below         m7 10L 3.14/8.37    28.17/281.70         28.17/281.70                   PASS
+summer, 2-dec, below           m6 10L 3.14/8.37    29.99/299.90         29.99/299.90                   PASS
+summer lowest boundary         m4 20L 2.00/7.00    20.75/415.00         20.75/415.00                   PASS
+standard highest boundary      m1 15.5L 7.00/10.00 48.50/751.75         48.50/751.75                   PASS
+season of 2026-03-31           2026-03-31          standard             standard                       PASS
+season of 2026-04-01           2026-04-01          Apr-Jun              Apr-Jun                        PASS
+season of 2026-06-30           2026-06-30          Apr-Jun              Apr-Jun                        PASS
+season of 2026-07-01           2026-07-01          standard             standard                       PASS
+summer, exactly 500 L          500 L               0.00/16000.00        0.00/16000.00                  PASS
+summer, 499.9 L                499.9 L             0.00/15996.80        0.00/15996.80                  PASS
+summer, 500.1 L                500.1 L             250.05/16253.25      250.05/16253.25                PASS
+standard, 500.1 L              500.1 L             250.05/15253.05      250.05/15253.05                PASS
+standard, exactly 500 L        500 L               0.00/15000.00        0.00/15000.00                  PASS
+period crossing 31 Mar/1 Apr   600 L               300.00/18900.00      300.00/18900.00                PASS
+invalid reading                1.99/8.5            ValueError           fat % 1.99 outside 2.0-7.0     PASS
+invalid reading                7.01/8.5            ValueError           fat % 7.01 outside 2.0-7.0     PASS
+invalid reading                3.5/6.99            ValueError           SNF % 6.99 outside 7.0-10.0    PASS
+invalid reading                3.5/10.01           ValueError           SNF % 10.01 outside 7.0-10.0   PASS
+
+All 24 tests passed.

@@ -1,0 +1,28 @@
+1) Step count of the ORIGINAL float code, fat readings with two decimals
+   fat           (fat-3.5)/0.1   round()  exact (v2)
+  4.15      6.5000000000000036         7         6.5
+  4.20       7.000000000000002         7         7.0
+  4.25                     7.5         8         7.5
+  4.30       7.999999999999998         8         8.0
+  4.35       8.499999999999996         8         8.5
+  4.45       9.500000000000002        10         9.5
+
+2) Rate for fat 4.25 / SNF 8.63 (standard card) in each design
+  original float module   : 33.5
+  original Decimal module : 33.50
+  v2 (exact steps)        : 33.39
+
+3) Same fat step bucket for different readings (original design)
+  fat 4.20: original Decimal rate 32.80   v2 rate 32.80
+  fat 4.25: original Decimal rate 33.20   v2 rate 33.00
+  fat 4.34: original Decimal rate 33.20   v2 rate 33.36
+
+4) Original constants cannot express the seasons: summer needs base 32.00, fat step 0.45
+  milkcalc has one BASE_RATE / FAT_STEP_VALUE -> 30.00 0.40
+  v2 cards:
+    RateCard(name='standard', base=Decimal('30.00'), fat_step=Decimal('0.40'), snf_step=Decimal('0.30'))
+    RateCard(name='Apr-Jun', base=Decimal('32.00'), fat_step=Decimal('0.45'), snf_step=Decimal('0.30'))
+
+5) Cost of the change: time per payout, 200,000 calls
+  milkcalc.payout (1 card, rounded steps)      2.44 us per call
+  v2.payout (card + exact steps)               1.83 us per call

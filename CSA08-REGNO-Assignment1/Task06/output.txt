@@ -1,0 +1,16 @@
+   8.5 L  Rs   283.90
+show_payment returned: None
+payout returned      : 283.9
+ten_day_total        : 917.5
+
+wrong_revision() -> 99.0 | global BASE_RATE still 30.0
+UnboundLocalError: cannot access local variable 'BASE_RATE' where it is not associated with a value
+
+lambda payout(8.5, 4.2, 8.7) = 283.9
+
+time for 150,000 entries (best of 3, seconds):
+  functions         0.207
+  one long script   0.168
+  lambdas           0.169
+
+rate formula copies: functions 1, lambdas 1, one long script = 1 per place it is needed

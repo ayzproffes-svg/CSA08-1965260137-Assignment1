@@ -1,0 +1,37 @@
+-- surprising results --
+(4.2 - 3.5) / 0.1        = 7.000000000000002
+round((4.2 - 3.5) / 0.1) = 7
+(3.1 - 3.5) / 0.1        = -3.999999999999999
+-2 ** 2                  = -4    (** binds tighter than unary minus)
+(-2) ** 2                = 4
+2 ** 3 ** 2              = 512   (** is right-associative: 2 ** 9)
+2 ** -1                  = 0.5
+10 - 4 - 3               = 3    (- is left-associative)
+round(2.5), round(3.5)   = 2 4   (halves go to the EVEN number)
+round(0.5), round(1.5)   = 0 2
+8.5 * 33.4               = 283.9
+0.1 * 3 == 0.3           = False
+
+-- round() vs int() vs math.floor() for negative values --
+value  -2.7: round  -3  int  -2  floor  -3
+value  -2.5: round  -2  int  -2  floor  -3
+value  -2.2: round  -2  int  -2  floor  -3
+value   2.7: round   3  int   2  floor   2
+
+-- comparison chaining and Boolean operators --
+2.0 <= fat <= 7.0        = True
+2.0 <= 8.0 <= 7.0        = False
+not (fat < 2.0 or fat > 7.0) = True
+1 < 2 < 3 == 3           = True
+True + True * 3          = 4
+
+-- alternative: steps with int() or floor() instead of round() --
+  fat             raw steps   round   int  floor | rate: round    int  floor
+  4.2     7.000000000000002       7     7      7 |         32.8   32.8   32.8
+  3.1    -3.999999999999999      -4    -3     -4 |         28.4   28.8   28.4
+  4.3     7.999999999999998       8     7      7 |         33.2   32.8   32.8
+
+time of one step calculation (1,000,000 calls, seconds):
+  round        0.073
+  int          0.057
+  math.floor   0.035

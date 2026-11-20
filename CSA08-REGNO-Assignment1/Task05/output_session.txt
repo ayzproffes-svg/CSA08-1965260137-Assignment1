@@ -1,0 +1,23 @@
+Litres (M) : 10
+Fat %       : 8,5
+  '8,5' is not a number - type digits and a '.' (e.g. 8.5)
+Fat %       : 3.5
+SNF %       : eight
+  'eight' is not a number - type digits and a '.' (e.g. 8.5)
+SNF %       : 8.5
+Litres (E) :  9.5 
+Fat %       : 12.5
+  12.5 is outside 2.0-7.0
+Fat %       : 4.2
+SNF %       : 8.7
+Litres (M) : -3
+  '-3' is not a number - type digits and a '.' (e.g. 8.5)
+Litres (M) : 8.5
+Fat %       : 3.1
+SNF %       : 8.3
+
+Sh   Litres   Fat   SNF    Rate    Amount
+M      10.0   3.5   8.5   30.00    300.00
+E       9.5   4.2   8.7   33.40    317.30
+M       8.5   3.1   8.3   27.80    236.30
+Total                            853.60
